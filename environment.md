@@ -1,4 +1,36 @@
-# docker
+# WSL related
+```powershell
+# List available Linux distributions
+wsl --list --online
+wsl -l -o
+#  Specify the Linux distribution to install
+wsl --install --distribution <XX>
+# List installed Linux distributions
+wsl -l -v
+# Confirm your distribution name for the following commands
+wsl --terminate <distro_name>
+# Run a specific Linux distribution from PowerShell or CMD
+wsl --distribution <Distribution Name> --user <User Name>
+<DistributionName> config --default-user <Username>
+
+# /etc/wsl.conf
+[user]
+default=username
+
+#Import and export a distribution
+wsl --export <Distribution Name> <FileName>
+wsl --unregister <DistributionName>
+wsl --import <Distribution Name> <InstallLocation> <FileName>
+```
+# Rust related
+```shell
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+rustup toolchain install nightly-2023-01-26
+rustup default nightly-2023-01-26
+rustup toolchain install nightly-x86_64-unknown-linux-gnu
+```
+
+# docker related
 ## make
 ```
 sudo apt install make
@@ -100,9 +132,3 @@ sudo apt-get install libssl-dev libclang-dev libcunit1-dev libsqlite3-dev
 sudo apt-get install qemu-kvm
 ```
 
-# Rust
-```shell
-curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-rustup toolchain install nightly-2023-01-26
-rustup default nightly-2023-01-26
-```
