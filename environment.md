@@ -95,7 +95,7 @@ sudo apt-get install python-dev python-pip python3-dev python3-pip
 sudo apt-get install protobuf-compiler python-protobuf
 sudo apt-get install gcc-8 g++-8
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
-##20.04 22.04
+## 20.04 22.04
 sudo apt-get install python3-dev python3-pip python-is-python3
 sudo apt-get install protobuf-compiler python3-protobuf
 ```
