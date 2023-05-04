@@ -22,7 +22,8 @@ wsl --export <Distribution Name> <FileName>
 wsl --unregister <DistributionName>
 wsl --import <Distribution Name> <InstallLocation> <FileName>
 ```
-# Rust related
+# Tools
+## Rust
 ```shell
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 rustup target add aarch64-unknown-none
@@ -43,11 +44,7 @@ curl -s https://storage.googleapis.com/git-repo-downloads/repo.asc | gpg --verif
 
 ```
 
-# docker related
-## make
-```
-sudo apt install make
-```
+
 # docker
 
 ## uninstall
@@ -78,9 +75,13 @@ sudo docker run hello-world
 ```
 
 
-# non-docker
-
 # base dependencies
+
+## make
+```shell
+sudo apt install make
+```
+
 ```shell
 sudo apt-get update
 sudo apt-get -y install build-essential
