@@ -13,7 +13,8 @@ wsl --terminate <distro_name>
 wsl --distribution <Distribution Name> --user <User Name>
 <DistributionName> config --default-user <Username>
 
-# /etc/wsl.conf
+# set default login user
+# add to /etc/wsl.conf
 [user]
 default=username
 
@@ -36,23 +37,27 @@ rustup toolchain install nightly-x86_64-unknown-linux-gnu
 sudo apt-get update
 sudo apt-get install repo
 repo version
-# no package manager:
+# in case no package managers are available:
 export REPO=$(mktemp /tmp/repo.XXXXXXXXX)
 curl -o ${REPO} https://storage.googleapis.com/git-repo-downloads/repo
 gpg --recv-key 8BB9AD793E8E6153AF0F9A4416530D5E920F5C65
 curl -s https://storage.googleapis.com/git-repo-downloads/repo.asc | gpg --verify - ${REPO} && install -m 755 ${REPO} ~/bin/repo
 
 ```
+## latex
+```shell
+sudo apt-get install texlive texlive-latex-extra texlive-fonts-extra
+```
 
 
-# docker
+## docker
 
-## uninstall
+### uninstall
 ```shell
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
-## install
+### install
 ```shell
 sudo apt-get update
 sudo apt-get install \
@@ -77,13 +82,9 @@ sudo docker run hello-world
 
 # base dependencies
 
-## make
-```shell
-sudo apt install make
-```
-
 ```shell
 sudo apt-get update
+sudo apt-get -y install make
 sudo apt-get -y install build-essential
 sudo apt-get -y install cmake ccache ninja-build cmake-curses-gui
 sudo apt-get -y install libxml2-utils ncurses-dev
