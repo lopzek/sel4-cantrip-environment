@@ -35,7 +35,7 @@ rustup toolchain install nightly-x86_64-unknown-linux-gnu
 ## repo
 ```shell
 sudo apt-get update
-sudo apt-get install repo
+sudo apt-get -y install repo
 repo version
 # in case no package managers are available:
 export REPO=$(mktemp /tmp/repo.XXXXXXXXX)
