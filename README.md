@@ -155,7 +155,19 @@ cd tutorial
 # building the tutorial exercise
 ninja
 ```
+# Do test
+```shell
+mkdir seL4test
+cd seL4test
+repo init -u https://github.com/seL4/sel4test-manifest.git
+repo sync
 
+mkdir build-x86
+cd build-x86
+../init-build.sh -DPLATFORM=x86_64 -DSIMULATION=TRUE
+ninja
+
+```
 # sparrow
 ```shell
 mkdir sparrow
