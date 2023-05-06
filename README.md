@@ -138,14 +138,15 @@ sudo apt-get -y install qemu-kvm
 ```
 
 
-# get tutorial code
+# seL4 tutorial
+## get tutorial code
 ```shell
 mkdir sel4-tutorials-manifest
 cd sel4-tutorials-manifest
 repo init -u https://github.com/seL4/sel4-tutorials-manifest
 repo sync
 ```
-# Do tutorial
+## Do tutorial
 ```shell
 # creating a Tutorial directory
 mkdir tutorial
