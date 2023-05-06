@@ -166,6 +166,9 @@ repo sync
 mkdir build-x86
 cd build-x86
 ../init-build.sh -DPLATFORM=x86_64 -DSIMULATION=TRUE
+# raspberry pi 3b
+../init-build.sh -DPLATFORM=rpi3 -DAARCH32=1
+
 ninja
 
 ```
