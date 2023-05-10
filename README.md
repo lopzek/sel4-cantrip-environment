@@ -176,6 +176,20 @@ cd cbuild
 ../init-build.sh -DPLATFORM=rpi3 -DAARCH32=1
 ninja
 ```
+# run on rp3
+## config.txt
+```
+enable_uart=1
+kernel=u-boot.bin
+```
+
+## load image
+```shell
+setenv loadaddr 0x10000000
+setenv sel4test sel4test-driver-image-arm-bcm2837
+fatload mmc 0  $loadaddr $seltest
+bootelf $loadaddr
+```
 
 # sparrow
 ```shell
