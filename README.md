@@ -193,6 +193,11 @@ bootelf $loadaddr
 
 # sparrow
 ```shell
+# NB: the gnu toolchain is expected to be in your shell search PATH; e.g.
+# cd ~
+# wget https://developer.arm.com/-/media/Files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz
+# tar xf gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz
+# PATH=~/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin:$PATH
 mkdir sparrow
 cd sparrow
 repo init -u https://github.com/AmbiML/sparrow-manifest -m sparrow-manifest.xml
