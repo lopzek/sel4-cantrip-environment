@@ -4,7 +4,17 @@
 # All rights reserved
 #
 # set up dev dependencies on Ubuntu 22.04
+if ! command -v rustup &> /dev/null
+then
+	echo "install rust"
+	echo "========================================"
 
+	curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+	rustup target add aarch64-unknown-none
+	rustup toolchain install nightly-2023-01-26
+	rustup default nightly-2023-01-26
+	rustup toolchain install nightly-x86_64-unknown-linux-gnu
+fi
 echo "========================================"
 echo "Setting up dependencies"
 echo "========================================"
@@ -58,3 +68,19 @@ sudo apt-get -y install clang gdb
 sudo apt-get -y install libssl-dev libclang-dev libcunit1-dev libsqlite3-dev
 sudo apt-get -y install qemu-kvm
 sudo apt-get -y install gawk
+
+echo "========================================"
+echo "install compiler"
+echo "========================================"
+if [ -a gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz ] 
+then
+	cd ~
+	echo "download compiler"
+	wget https://developer.arm.com/-/media/Files/downloads/gnu/11.2-2022.02/binrel/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz
+	tar xf gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu.tar.xz
+	PATH=~/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin:$PATH
+else
+
+	echo "compiller installed"
+fi
+
