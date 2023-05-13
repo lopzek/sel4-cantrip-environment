@@ -24,13 +24,33 @@ wsl --unregister <DistributionName>
 wsl --import <Distribution Name> <InstallLocation> <FileName>
 ```
 # Tools
+## path
+```shell
+export PLATFORM=rpi3
+export CANTRIP_RUST_VERSION=nightly
+PATH=~/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin:${HOME}/.local/bin:$PATH
+# export SEL4_PLATFOM=bcm2837
+# export DD_ARGS='obs=1M seek=512 ibs=16M'
+```
 ## Rust
 ```shell
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 rustup target add aarch64-unknown-none
-rustup toolchain install nightly-2023-01-26
-rustup default nightly-2023-01-26
 rustup toolchain install nightly-x86_64-unknown-linux-gnu
+# rustup toolchain install nightly-2023-01-26
+# rustup default nightly-2023-01-26
+```
+## python
+
+```shell
+pip3 install --user setuptools
+pip3 install --user sel4-deps
+pip3 install --user camkes-deps
+pip3 install --user aenum
+pip3 install --user pyelftools
+pip3 install --user tempita
+pip3 install --user six plyplus pyelftools orderedset jinja2
+pip3 install --user camkes-cli
 ```
 ## repo
 ```shell
@@ -116,14 +136,6 @@ sudo apt-get -y install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 sudo apt-get -y install gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 ```
 
-# Python
-```shell
-pip3 install --user setuptools
-pip3 install --user sel4-deps
-pip3 install --user camkes-deps
-pip3 install --user aenum
-pip3 install --user pyelftools
-```
 
 # Haskell 
 ```shell
@@ -205,4 +217,8 @@ repo sync -j$(nproc)
 export PLATFORM=rpi3
 source build/setup.sh
 m simulate-debug
+```
+# compile
+```shell
+mkimage -A arm64 -a 0x10000000 -e 0x10000000 -C none  -T kernel -O qnx -d out/cantrip/aarch64-unknown-elf/release/elfloader/elfloader temp
 ```
