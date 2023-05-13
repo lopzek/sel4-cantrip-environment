@@ -57,3 +57,4 @@ echo "========================================"
 sudo apt-get -y install clang gdb
 sudo apt-get -y install libssl-dev libclang-dev libcunit1-dev libsqlite3-dev
 sudo apt-get -y install qemu-kvm
+sudo apt-get -y install gawk
