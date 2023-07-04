@@ -18,6 +18,15 @@ apt-get -y install libxml2-utils ncurses-dev
 apt-get -y install curl git doxygen device-tree-compiler
 apt-get -y install u-boot-tools
 
+
+echo "========================================"
+echo "arm cross compilers"
+echo "========================================"
+apt install gcc-arm-none-eabi -y
+apt install gcc-arm-linux-gnueabihf -y
+apt install gcc-aarch64-linux-gnu -y
+apt install g++-aarch64-linux-gnu -y
+
 echo "========================================"
 echo "Installing Python and QEMU dependencies"
 echo "========================================"
@@ -64,6 +73,9 @@ apt-get -y install python3-venv
 
 # CAmkES visual
 apt-get -y install git repo libncurses-dev python-pip libxml2-utils cmake ninja-build clang libssl-dev libsqlite3-dev libcunit1-dev gcc-multilib expect qemu-system-x86 qemu-system-arm gcc-arm-none-eabi binutils-arm-none-eabi
+
+# add to PATH
+echo  'PATH=~/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/bin:${HOME}/.local/bin:$PATH' >> ~/.bashrc 
 
 echo "========================================"
 echo "install compiler"
